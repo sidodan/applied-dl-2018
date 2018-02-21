@@ -17,6 +17,8 @@ Participation is via a donation to the A.L.S ASSOCIATION for promoting research 
 Refer to: 
 https://www.evernote.com/shard/s341/sh/3855640e-2b0b-42e5-b5b9-00216d02ac9a/b47968226e49a81ee813901cd41d3924
 
+in PDF: 
+
 #### Meetup:
 
 
