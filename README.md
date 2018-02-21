@@ -31,6 +31,13 @@ You can register, however we reserve no places, folowing a first come first serv
 - CUDA 9.0 drivers.
 - cuDNN 7.0.
 
+- [pytorch](https://github.com/pytorch/pytorch) >= 0.2.0
+- [torchvision](https://github.com/pytorch/vision) >= 0.1.8
+- [Pillow](https://github.com/python-pillow/Pillow)
+- [scipy](https://github.com/scipy/scipy)
+- [tqdm](https://github.com/tqdm/tqdm)
+- Keras
+
 ## IDE
 
 This project has been realised with [*PyCharm*](https://www.jetbrains.com/pycharm/) by *JetBrains*
