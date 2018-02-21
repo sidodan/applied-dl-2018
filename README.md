@@ -1,8 +1,9 @@
-# Applied-dl-2018
-
 
 # 12 Applied Deep Learning Labs, 2018
-## Tel Aviv Deep Learning Bootcamp : http://deep-ml.com. 
+
+## Tel Aviv Deep Learning Bootcamp : http://deep-ml.com
+
+Contact: shlomo@bayesian.io 
 
 ### About
 Tel-Aviv Deep Learning Bootcamp is an intensive (and free!) 5-day program intended to teach you all about deep learning. It is nonprofit focused on advancing data science education and fostering entrepreneurship. The Bootcamp is a prominent venue for graduate students, researchers, and data science professionals. It offers a chance to study the essential and innovative aspects of deep learning.	
