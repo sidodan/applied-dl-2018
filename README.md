@@ -3,14 +3,13 @@
 
 ## Tel Aviv Deep Learning Bootcamp : http://deep-ml.com
 
-![cuda](Selection_004.png)
+![bone](bone.png)
 
 # Full schedule:
 Refer to: 
 https://www.evernote.com/shard/s341/sh/3855640e-2b0b-42e5-b5b9-00216d02ac9a/b47968226e49a81ee813901cd41d3924
 
-![PDF](Tel-Aviv Deep Learning Boot-camp_ 12 Applied Deep Learning Labs _ Evernote Web.pdf)
-
+![cuda](Selection_004.png)
 
 Contact: shlomo@bayesian.io 
 
@@ -19,12 +18,8 @@ Tel-Aviv Deep Learning Bootcamp is an intensive (and free!) 5-day program intend
 
 Participation is via a donation to the A.L.S ASSOCIATION for promoting research of the Amyotrophic Lateral Sclerosis (ALS) disease. 
 
-#### Meetup:
-
-
 #### Registration:
 You can register, however we reserve no places, folowing a first come first serve policy. 
-
 
 ### Requirements
 
