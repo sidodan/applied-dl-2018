@@ -1,5 +1,5 @@
 
-## [lab_9_cat_dog Classifier Challenge]( https://www.kaggle.com/)
+## Lab 9 Kaggle Cat Dog Classifier Challenge
 
 ![curve](cat.png)
 
@@ -23,8 +23,8 @@ https://www.kaggle.com/c/dogs-vs-cats-redux-kernels-edition
 ## Progress
 
 - [x] Binary Classification on the cat dog Data Set
-- [x] SENet
-- [x] Curve generation, ACC/LOSS in PNG format and in TensorBoard    
+- [x] VGG
+- [x] Curve generation, ACC/LOSS in PNG format and in **TensorBoard**    
 
 ### Networks Used (See *models* folder for details)
 
