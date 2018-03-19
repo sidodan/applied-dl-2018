@@ -26,8 +26,8 @@ parser.add_argument('--lr_period', default=10, type=float, help='learning rate s
 parser.add_argument('--batch_size', default=16, type=int, metavar='N', help='train batchsize')
 
 parser.add_argument('--num_classes', type=int, default=2, help='Number of Classes in data set.')
-parser.add_argument('--data_path', default='/home/data/cat-dog/train/', type=str, help='Path to train dataset')
-parser.add_argument('--data_path_test', default='/home/data/cat-dog/test/', type=str, help='Path to test dataset')
+parser.add_argument('--data_path', default='d:/db/data/cat-dog/train/', type=str, help='Path to train dataset')
+parser.add_argument('--data_path_test', default='d:/db/data/cat-dog/test/', type=str, help='Path to test dataset')
 parser.add_argument('--dataset', type=str, default='catdog', choices=['cats'], help='Choose between data sets')
 
 # parser.add_argument('--arch', metavar='ARCH', default='simple', choices=model_names)
@@ -35,7 +35,7 @@ parser.add_argument('--imgDim', default=3, type=int, help='number of Image input
 parser.add_argument('--img_scale', default=224, type=int, help='Image scaling dimensions')
 parser.add_argument('--base_factor', default=20, type=int, help='SENet base factor')
 
-parser.add_argument('--epochs', type=int, default=70, help='Number of epochs to train.')
+parser.add_argument('--epochs', type=int, default=250, help='Number of epochs to train.')
 parser.add_argument('--current_time', type=str, default=datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S'),
                     help='Current time.')
 
@@ -282,7 +282,7 @@ if __name__ == '__main__':
 
     trainloader, valloader, trainset, valset, classes, class_to_idx, num_to_class, df = loadDB(args)
     print('Çlasses {}'.format(classes))
-    models = ['vggnet']
+    models = ['senet']
     for i in range (1,5):
         for m in models:
             runId = datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
@@ -336,7 +336,7 @@ if __name__ == '__main__':
                     os.makedirs(mPath)
                 recorder.plot_curve(os.path.join(mPath, model_name + '_' + runId + '.png'), args, model)
 
-                if (float(val_loss) < float(0.25)):
+                if (float(val_loss) < float(0.20)):
                     print ("*** EARLY STOPPING ***")
                     s_submission = pd.read_csv('catdog-sample_submission.csv')
                     s_submission.columns = columns
