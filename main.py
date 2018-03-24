@@ -52,28 +52,28 @@ from kdataset import *
 parser = argparse.ArgumentParser(description='Trains ResNeXt on CIFAR or ImageNet', formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 # parser.add_argument('--data_path', type=str, help='Path to dataset')
 
-# parser.add_argument('--num_classes', type=int, default=12, help='Number of Classes in data set.')
-# parser.add_argument('--data_path', default='d:/db/data/seedlings/train/', type=str, help='Path to train dataset')
-# parser.add_argument('--test_data_path', default='d:/db/data/seedlings/test/', type=str, help='Path to train dataset')
-# parser.add_argument('--dataset', type=str, default='seedlings', choices=['seedlings'], help='Choose between Cifar10/100 and ImageNet.')
+parser.add_argument('--num_classes', type=int, default=12, help='Number of Classes in data set.')
+parser.add_argument('--data_path', default='d:/db/data/seedlings/train/', type=str, help='Path to train dataset')
+parser.add_argument('--test_data_path', default='d:/db/data/seedlings/test/', type=str, help='Path to train dataset')
+parser.add_argument('--dataset', type=str, default='seedlings', choices=['seedlings'], help='Choose between Cifar10/100 and ImageNet.')
 
 # parser.add_argument('--num_classes', type=int, default=2, help='Number of Classes in data set.')
 # parser.add_argument('--data_path', default='d:/db/data/ISIC2017/train/', type=str, help='Path to train dataset')
 # parser.add_argument('--dataset', type=str, default='ISIC2017', choices=['ISIC2017'], help='Choose between data sets')
 
-parser.add_argument('--num_classes', type=int, default=2, help='Number of Classes in data set.')
-parser.add_argument('--data_path', default='d:/db/data/bone/TCB_Challenge_Data/train/', type=str, help='Path to train dataset')
-parser.add_argument('--dataset', type=str, default='bone', choices=['bone'], help='Choose between data sets')
+# parser.add_argument('--num_classes', type=int, default=2, help='Number of Classes in data set.')
+# parser.add_argument('--data_path', default='d:/db/data/bone/TCB_Challenge_Data/train/', type=str, help='Path to train dataset')
+# parser.add_argument('--dataset', type=str, default='bone', choices=['bone'], help='Choose between data sets')
 
 
 # parser.add_argument('--arch', metavar='ARCH', default='resnext', choices=model_names, help='model architecture: ' + ' | '.join(model_names) + ' (default: resnext29_8_64)')
 # parser.add_argument('--arch', metavar='ARCH', default='resnext29_8_64', choices=model_names, help='model architecture: ' + ' | '.join(model_names) + ' (default: resnext29_8_64)')
 # Optimization options
-parser.add_argument('--epochs', type=int, default=100, help='Number of epochs to train.')
+parser.add_argument('--epochs', type=int, default=250, help='Number of epochs to train.')
 parser.add_argument('--batch_size', type=int, default=32, help='Batch size.')
 # parser.add_argument('--learning_rate', type=float, default=0.1, help='The Learning Rate.')
 # parser.add_argument('--learning_rate', type=float, default=0.00005 * 2 * 2, help='The Learning Rate.')
-parser.add_argument('--learning_rate', type=float, default= 0.00005 * 2 * 2, help='The Learning Rate.')
+parser.add_argument('--learning_rate', type=float, default= 0.0005 * 2 * 2, help='The Learning Rate.')
 parser.add_argument('--momentum', type=float, default=0.9, help='Momentum.')
 parser.add_argument('--decay', type=float, default=0.0005, help='Weight decay (L2 penalty).')
 parser.add_argument('--schedule', type=int, nargs='+', default=[150, 225], help='Decrease learning rate at these epochs.')
@@ -88,7 +88,7 @@ parser.add_argument('--evaluate', dest='evaluate', action='store_true', help='ev
 parser.add_argument('--ngpu', type=int, default=1, help='0 = CPU.')
 parser.add_argument('--workers', type=int, default=0, help='number of data loading workers (default: 2)')
 # random seed
-parser.add_argument('--manualSeed', type=int, help='manual seed', default=999)
+parser.add_argument('--manualSeed', type=int, help='manual seed', default=2222)
 parser.add_argument('--tensorboard',
                     help='Log progress to TensorBoard', action='store_true', default=True)
 
@@ -126,8 +126,10 @@ def main():
   args.num_classes=len(classes)
   # Init model, criterion, and optimizer
   # net = models.__dict__[args.arch](num_classes)
-  net= kmodels.simpleXX_generic(num_classes=args.num_classes, imgDim=args.imgDim)
+  # net= kmodels.simpleXX_generic(num_classes=args.num_classes, imgDim=args.imgDim)
   # net= kmodels.vggnetXX_generic(num_classes=args.num_classes,  imgDim=args.imgDim)
+  # net= kmodels.vggnetXX_generic(num_classes=args.num_classes,  imgDim=args.imgDim)
+  net= kmodels.dpn92(num_classes=args.num_classes)
   # print_log("=> network :\n {}".format(net), log)
 
   real_model_name = (type(net).__name__)
@@ -196,10 +198,10 @@ def main():
   # optimizer = torch.optim.SGD(net.parameters(), state['learning_rate'], momentum=state['momentum'],
   #               weight_decay=state['decay'], nesterov=True)
 
-  optimizer = torch.optim.Adam(net.parameters(), lr=args.learning_rate)
-  # optimizer = torch.optim.SGD(net.parameters(), state['learning_rate'], momentum=state['momentum'],
-  #                             weight_decay=state['decay'], nesterov=True)
-  # # optimizer = torch.optim.Adam(net.parameters(), lr=state['learning_rate'])
+  # optimizer = torch.optim.Adam(net.parameters(), lr=args.learning_rate)
+  optimizer = torch.optim.SGD(net.parameters(), state['learning_rate'], momentum=state['momentum'],
+                              weight_decay=state['decay'], nesterov=True)
+  # optimizer = torch.optim.Adam(net.parameters(), lr=state['learning_rate'])
 
   if args.use_cuda:
     net.cuda()

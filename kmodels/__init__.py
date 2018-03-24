@@ -10,3 +10,4 @@ from .simplenet import *
 from .senet import *
 from .lenet import *
 from .wrn import *
+from .dpn import *
