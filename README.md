@@ -11,9 +11,9 @@ https://www.evernote.com/shard/s341/sh/3855640e-2b0b-42e5-b5b9-00216d02ac9a/b479
 
 ![cuda](Selection_004.png)
 
-Contact: shlomo@bayesian.io 
+Contact: Shlomo Kashani at shlomo@bayesian.io 
 
-# Google Collab:
+# Google Collab + PyTorch:
 - https://colab.research.google.com/drive/1y0pgDW_0r4tPSk6URgWc3UekejIKBxDd
 
 
