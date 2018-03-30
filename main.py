@@ -130,10 +130,15 @@ def main():
   # net= kmodels.vggnetXX_generic(num_classes=args.num_classes,  imgDim=args.imgDim)
   # net= kmodels.vggnetXX_generic(num_classes=args.num_classes,  imgDim=args.imgDim)
   net= kmodels.dpn92(num_classes=args.num_classes)
+  # net= kmodels.inception_v3(num_classes=args.num_classes)
   # print_log("=> network :\n {}".format(net), log)
 
   real_model_name = (type(net).__name__)
   print("=> Creating model '{}'".format(real_model_name))
+  # if real_model_name is "Inception3":
+  #   net = inception_v3(pretrained=True)
+  #   net.fc = nn.Linear(2048, args.num_classes)
+
   import datetime
 
   exp_name = datetime.datetime.now().strftime(real_model_name + '_' + args.dataset + '_%Y-%m-%d_%H-%M-%S')
@@ -287,6 +292,13 @@ def train(train_loader, model, criterion, optimizer, epoch, log):
 
     # compute output
     output = model(input_var)
+
+    # a fix for inception v3, RuntimeError: log_softmax(): argument 'input' (position 1) must be Variable, not tuple
+    # if isinstance(output, tuple):
+    #   loss = sum((criterion(o, target_var) for o in output))
+    # else:
+    #   loss = criterion(output, target_var)
+
     loss = criterion(output, target_var)
 
     # measure accuracy and record loss
