@@ -1,5 +1,5 @@
 
-# 12 Applied Deep Learning Labs, 2018
+# 12 Applied Medical Deep Learning Labs, 2018
 
 ## Tel Aviv Deep Learning Bootcamp : http://deep-ml.com
 
