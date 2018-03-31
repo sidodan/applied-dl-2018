@@ -9,18 +9,19 @@
 Refer to: 
 https://www.evernote.com/shard/s341/sh/3855640e-2b0b-42e5-b5b9-00216d02ac9a/b47968226e49a81ee813901cd41d3924
 
-![cuda](Selection_004.png)
 
 Contact: Shlomo Kashani at shlomo@bayesian.io 
 
 # Google Collab + PyTorch:
 - https://colab.research.google.com/drive/1y0pgDW_0r4tPSk6URgWc3UekejIKBxDd
 
+# Labs:
+- Melanoma Classification: https://github.com/bayesianio/applied-dl-2018/blob/master/lab-0-SeNet-SeedLings.ipynb
+- Breast Cancer Classification: https://github.com/bayesianio/applied-dl-2018/blob/master/lab-2-Breast-Cancer-Histopathology-SeNet.ipynb 
 
 ### About
 Tel-Aviv Deep Learning Bootcamp is an intensive (and free!) 5-day program intended to teach you all about deep learning. It is nonprofit focused on advancing data science education and fostering entrepreneurship. The Bootcamp is a prominent venue for graduate students, researchers, and data science professionals. It offers a chance to study the essential and innovative aspects of deep learning.	
 
-Participation is via a donation to the A.L.S ASSOCIATION for promoting research of the Amyotrophic Lateral Sclerosis (ALS) disease. 
 
 #### Registration:
 You can register, however we reserve no places, folowing a first come first serve policy. 
