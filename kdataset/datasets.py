@@ -36,6 +36,8 @@ import torchvision
 from torchvision import transforms, datasets, models
 import random
 import sys
+from glob import glob
+import fnmatch
 
 class GenericDataset(Dataset):
   def __init__(self, labels, root_dir, subset=False, transform=None):
@@ -104,3 +106,37 @@ class GenericDataset(Dataset):
     df = pd.DataFrame(train, columns=['file', 'category', 'category_id', ])
     df.to_csv('full_melanoma_labels.csv', index=None)
     return classes, class_to_idx, num_to_class, df
+
+
+  @staticmethod
+  def find_classes_breast(fullDir):
+    imageList = glob(fullDir + '/**/*.png', recursive=True)
+
+    benign = '*class0.png'
+    malignant = '*class1.png'
+    classZero = fnmatch.filter(imageList, benign)
+    classOne = fnmatch.filter(imageList, malignant)
+    #         print("benign:",classZero[0:5],'\n')
+    #         print("malignant:",classOne[0:5])
+
+    class_to_idx = {'benign': 0, 'malignant': 1}
+    num_to_class = {0: 'benign', 1: 'malignant'}
+    classes = ['benign', 'malignant']
+
+    print('Classes: {}'.format(classes))
+    print('class_to_idx: {}'.format(class_to_idx))
+    print('num_to_class: {}'.format(num_to_class))
+
+    train = []
+    for currImage_on_disk in classZero:
+      if os.path.isfile(currImage_on_disk):
+        train.append(['{}'.format(currImage_on_disk), 'benign', class_to_idx['benign']])
+
+    for currImage_on_disk in classOne:
+      if os.path.isfile(currImage_on_disk):
+        train.append(['{}'.format(currImage_on_disk), 'malignant', class_to_idx['malignant']])
+
+    df = pd.DataFrame(train, columns=['file', 'category', 'category_id', ])
+    df.to_csv('full_labels_breast.csv', index=None)
+    return classes, class_to_idx, num_to_class, df
+

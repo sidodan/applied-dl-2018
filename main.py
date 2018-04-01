@@ -52,10 +52,17 @@ from kdataset import *
 parser = argparse.ArgumentParser(description='Trains ResNeXt on CIFAR or ImageNet', formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 # parser.add_argument('--data_path', type=str, help='Path to dataset')
 
-parser.add_argument('--num_classes', type=int, default=12, help='Number of Classes in data set.')
-parser.add_argument('--data_path', default='d:/db/data/seedlings/train/', type=str, help='Path to train dataset')
-parser.add_argument('--test_data_path', default='d:/db/data/seedlings/test/', type=str, help='Path to train dataset')
-parser.add_argument('--dataset', type=str, default='seedlings', choices=['seedlings'], help='Choose between Cifar10/100 and ImageNet.')
+# parser.add_argument('--num_classes', type=int, default=12, help='Number of Classes in data set.')
+# parser.add_argument('--data_path', default='d:/db/data/seedlings/train/', type=str, help='Path to train dataset')
+# parser.add_argument('--test_data_path', default='d:/db/data/seedlings/test/', type=str, help='Path to train dataset')
+# parser.add_argument('--dataset', type=str, default='seedlings', choices=['seedlings'], help='Choose between Cifar10/100 and ImageNet.')
+
+
+
+parser.add_argument('--num_classes', type=int, default=2, help='Number of Classes in data set.')
+parser.add_argument('--data_path', default='d:/db/data/IDC_regular_ps50_idx5/', type=str, help='Path to train dataset')
+parser.add_argument('--dataset', type=str, default='IDC_regular_ps50_idx5', choices=['IDC_regular_ps50_idx5'], help='Choose between data sets')
+
 
 # parser.add_argument('--num_classes', type=int, default=2, help='Number of Classes in data set.')
 # parser.add_argument('--data_path', default='d:/db/data/ISIC2017/train/', type=str, help='Path to train dataset')
@@ -121,15 +128,18 @@ def main():
   if args.dataset=="ISIC2017":
     classes, class_to_idx, num_to_class, df = GenericDataset.find_classes_melanoma(args.data_path)
 
+  if args.dataset=="IDC_regular_ps50_idx5":
+    classes, class_to_idx, num_to_class, df = GenericDataset.find_classes_breast(args.data_path)
+
   df.head(3)
 
   args.num_classes=len(classes)
   # Init model, criterion, and optimizer
   # net = models.__dict__[args.arch](num_classes)
-  # net= kmodels.simpleXX_generic(num_classes=args.num_classes, imgDim=args.imgDim)
+  net= kmodels.simpleXX_generic(num_classes=args.num_classes, imgDim=args.imgDim)
   # net= kmodels.vggnetXX_generic(num_classes=args.num_classes,  imgDim=args.imgDim)
   # net= kmodels.vggnetXX_generic(num_classes=args.num_classes,  imgDim=args.imgDim)
-  net= kmodels.dpn92(num_classes=args.num_classes)
+  # net= kmodels.dpn92(num_classes=args.num_classes)
   # net= kmodels.inception_v3(num_classes=args.num_classes)
   # print_log("=> network :\n {}".format(net), log)
 
@@ -182,11 +192,24 @@ def main():
 
   test_trans=valid_trans
 
-  train_data = df.sample(frac=args.validationRatio)
-  valid_data = df[~df['file'].isin(train_data['file'])]
+  if args.dataset == "IDC_regular_ps50_idx5":
+    full_data = df.sample(frac=0.20)  # save for testing (not validation)
+    # full_data = full_data.sample(frac=0.10) # DATA SET IS VERY LARGE use a sample
+    test_data = df[~df['file'].isin(full_data['file'])]
+    test_set = GenericDataset(test_data, args.data_path, transform=valid_trans)
 
-  train_set = GenericDataset(train_data, args.data_path, transform=train_trans)
-  valid_set = GenericDataset(valid_data, args.data_path, transform=valid_trans)
+    # Train validation split
+    train_data = full_data.sample(frac=args.validationRatio)
+    valid_data = full_data[~full_data['file'].isin(train_data['file'])]
+    train_set = GenericDataset(train_data, args.data_path, transform=train_trans)
+    valid_set = GenericDataset(valid_data, args.data_path, transform=valid_trans)
+
+  else:
+    train_data = df.sample(frac=args.validationRatio)
+    valid_data = df[~df['file'].isin(train_data['file'])]
+
+    train_set = GenericDataset(train_data, args.data_path, transform=train_trans)
+    valid_set = GenericDataset(valid_data, args.data_path, transform=valid_trans)
 
   t_loader = DataLoader(train_set, batch_size=args.batch_size, shuffle=True, num_workers=0)
   v_loader = DataLoader(valid_set, batch_size=args.batch_size, shuffle=True, num_workers=0)
@@ -203,9 +226,9 @@ def main():
   # optimizer = torch.optim.SGD(net.parameters(), state['learning_rate'], momentum=state['momentum'],
   #               weight_decay=state['decay'], nesterov=True)
 
-  # optimizer = torch.optim.Adam(net.parameters(), lr=args.learning_rate)
-  optimizer = torch.optim.SGD(net.parameters(), state['learning_rate'], momentum=state['momentum'],
-                              weight_decay=state['decay'], nesterov=True)
+  optimizer = torch.optim.Adam(net.parameters(), lr=args.learning_rate)
+  # optimizer = torch.optim.SGD(net.parameters(), state['learning_rate'], momentum=state['momentum'],
+  #                             weight_decay=state['decay'], nesterov=True)
   # optimizer = torch.optim.Adam(net.parameters(), lr=state['learning_rate'])
 
   if args.use_cuda:
