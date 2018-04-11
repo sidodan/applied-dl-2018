@@ -3,10 +3,9 @@
 
 ## Author
 Shlomo Kashani, Head of Deep Learning at  http://DeepOncology.ai 
-
+![bone](line-up-small.png)
 ## Tel Aviv Deep Learning Bootcamp : http://deep-ml.com
-
-![bone](bone.png)
+![bone](melanoma.png)
 
 # Full schedule:
 Refer to: 
@@ -15,8 +14,7 @@ https://www.evernote.com/shard/s341/sh/3855640e-2b0b-42e5-b5b9-00216d02ac9a/b479
 ## Forum:
 https://bayesian-ai.trydiscourse.com/categories
 
-
-Contact: Shlomo Kashani at shlomo@deeponcology.ai
+![bone](bone.png)
 
 # Google Collab + PyTorch Notebooks:
 - https://colab.research.google.com/drive/1y0pgDW_0r4tPSk6URgWc3UekejIKBxDd
