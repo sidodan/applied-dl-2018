@@ -15,8 +15,12 @@ https://bayesian-ai.trydiscourse.com/categories
 
 Contact: Shlomo Kashani at shlomo@deeponcology.ai
 
-# Google Collab + PyTorch:
+# Google Collab + PyTorch Notebooks:
 - https://colab.research.google.com/drive/1y0pgDW_0r4tPSk6URgWc3UekejIKBxDd
+
+- https://drive.google.com/file/d/1YJQlgbjY4Mj50l6f3cN008oW-LKlBWfQ/view
+- https://drive.google.com/file/d/11BhMeqYjMds92t9PgcVW7SZxF3ZWcgj0/view
+- https://drive.google.com/file/d/1qf2hH9XsvHtNwTEzZRyqgsn_2vfG3flw/view
 
 # Labs:
 - Lab 01- Melanoma Classification: https://github.com/bayesianio/applied-dl-2018/blob/master/lab-0-SeNet-SeedLings.ipynb and https://bayesian-ai.trydiscourse.com/t/12-applied-deep-learning-labs-1-melanoma-detection/20
@@ -24,7 +28,19 @@ Contact: Shlomo Kashani at shlomo@deeponcology.ai
 
 
 ### About
-Tel-Aviv Deep Learning Bootcamp is an intensive (and free!) 5-day program intended to teach you all about deep learning. It is nonprofit focused on advancing data science education and fostering entrepreneurship. The Bootcamp is a prominent venue for graduate students, researchers, and data science professionals. It offers a chance to study the essential and innovative aspects of deep learning.	
+We are happy to introduce our full (and Free) Applied Deep course Learning curriculum for 2018. 
+Assembling this curriculum required a lot of thought and attention, aiming at using real use cases and corresponding real data sets.
+
+Deep learning, a sub-domain of machine learning, has lately showed amazing results across an assortment of domains. Biology and medicine are data affluent, but the data is involved and frequently ill-understood. Problems of this quality may be especially well-suited to deep learning methods. We present applications of applied deep learning to a variety of biomedical problems
+
+In particular, we foster the use of **Medical Data Sets** (https://grand-challenge.org/All_Challenges/) and predominantly those available (but not only) via Kaggle. 
+
+The course consists of 12 labs from which we like to share the first 5, and most notably, the labs are geared towards those interested in practical/applied data science rather than theoretical data science. We feel there are a numerous theoretical DL courses while the practical ones are rather scarce. 
+
+
+In terms of DL libraries, we foster the use of **Keras and PyTorch** and we hope to alternate between these two in each subsequent class.
+
+This is a provisional curriculum, which is subject to change. 
 
 
 #### Registration:
