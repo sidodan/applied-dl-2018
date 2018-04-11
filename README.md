@@ -2,7 +2,8 @@
 # 12 Applied Medical Deep Learning Labs, 2018
 
 ## Author
-Shlomo Kashani, Head of Deep Learning at  http://DeepOncology.ai 
+Shlomo Kashani, Head of Deep Learning at  http://DeepOncology.ai
+
 ![bone](line-up-small.png)
 ## Tel Aviv Deep Learning Bootcamp : http://deep-ml.com
 ![bone](melanoma.png)
