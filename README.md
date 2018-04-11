@@ -1,6 +1,9 @@
 
 # 12 Applied Medical Deep Learning Labs, 2018
 
+## Author
+Shlomo Kashani, Head of Deep Learning at  http://DeepOncology.ai 
+
 ## Tel Aviv Deep Learning Bootcamp : http://deep-ml.com
 
 ![bone](bone.png)
@@ -101,7 +104,4 @@ For a full example refer to: https://github.com/QuantScientist/Deep-Learning-Boo
 # Relevant info:
 
 http://deep-ml.com/
-
-## Author
-Shlomo Kashani, Head of Deep Learning at DeepOncology.ai 
 
