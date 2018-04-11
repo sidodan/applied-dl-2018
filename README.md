@@ -98,14 +98,10 @@ Further, Inside 'train' will be 2 folders - 'ships', 'icebergs'.
 For a full example refer to: https://github.com/QuantScientist/Deep-Learning-Boot-Camp/blob/master/Kaggle-PyTorch/PyTorch-Ensembler/kdataset/seedings.py 
 
 
-## IDE
-
-This project has been realised with [*PyCharm*](https://www.jetbrains.com/pycharm/) by *JetBrains*
-
 # Relevant info:
 
 http://deep-ml.com/
 
 ## Author
-Shlomo Kashani/ [@QuantScientist](https://github.com/bayesianio) and many more. 
+Shlomo Kashani, Head of Deep Learning at DeepOncology.ai 
 
